@@ -13,7 +13,7 @@
 
 <script src="sql-wasm.js"></script>
 <script>
-    var db, contents, fives, seven;
+    var db, contents, fives, seven, haiku;
     config = {
         locateFile: filename => `sql-wasm.wasm`
     }
@@ -25,14 +25,22 @@
         xhr.onload = e => {
             var uInt8Array = new Uint8Array(xhr.response);
             db = new SQL.Database(uInt8Array);
-            fives = db.exec("SELECT five FROM haiku ORDER BY random() LIMIT 2;");
-            seven = db.exec("SELECT seven FROM haiku ORDER BY random() LIMIT 1;");
+            haiku = db.exec(`
+                SELECT a.five, b.seven , c.five
+                FROM (select distinct five from haiku) a,
+                    (select distinct seven from haiku) b,
+                    (Select distinct five from haiku) c
+                Order by random(),random(),random() LIMIT 1;
+                `);
+            // fives = db.exec("SELECT five FROM haiku ORDER BY random() LIMIT 2;");
+            // seven = db.exec("SELECT seven FROM haiku ORDER BY random() LIMIT 1;");
             // console.log(contents);
             // contents[0].values[0][1]
             // contents[0].values[Math.floor(Math.random() * contents[0].values.length)][0]
             // console.log( fives[0].values[0][0] + "\n", seven[0].values[0][0] + "\n", fives[0].values[1][0] );
             var haikuText = document.getElementById('haikuText');
-                haikuText.innerHTML = fives[0].values[0][0] + "<br>" + seven[0].values[0][0] + "<br>" + fives[0].values[1][0];
+                // haikuText.innerHTML = fives[0].values[0][0] + "<br>" + seven[0].values[0][0] + "<br>" + fives[0].values[1][0];
+                haikuText.innerHTML = haiku[0].values[0].join('<br>');
         };
         xhr.send();
     });
