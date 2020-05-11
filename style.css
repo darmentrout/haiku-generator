@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+main {
+    margin: 0px auto;
+    padding: 2rem;
+    width: 95vw;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#haikuText {
+    margin: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#getHaiku {
+}
+
+footer {
+    text-align: center;
+}
