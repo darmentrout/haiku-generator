@@ -2,22 +2,43 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Oswald;
+    src: url('Oswald-VariableFont_wght.ttf') format('truetype');
+}
+
 html,
 body {
     margin: 0px;
     padding: 0px;
+    font-family: Oswald, sans-serif;
 }
 
 body {
+    height: 100vh;
+}
+
+.gradient {
     background-color: #8BC6EC;
     background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     background-repeat: no-repeat;
-    height: 100vh;
+}
+
+.container {
+    height: 90vh;
+}
+
+header {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 main {
     margin: 0px auto;
-    padding: 2rem;
     width: 95vw;
     max-width: 700px;
     display: flex;
@@ -26,12 +47,24 @@ main {
 }
 
 #haikuText {
-    margin: 2rem;
     text-align: center;
     font-size: 2rem;
 }
 
 #getHaiku {
+    font-size: 1.2rem;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 2px solid #111;
+    background-color: rgba(255,255,255,.3);
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#getHaiku:hover,
+#getHaiku:focus,
+#getHaiku:active {
+    background-color: rgba(255,255,255,.5);
 }
 
 footer {

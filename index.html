@@ -7,17 +7,19 @@
     <title>Haiku Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="gradient">
 
 <div class="container">
     <header>
+        <h1>Haiku Generator</h1>
+        <p>Hit the button to generate a random haiku</p>
     </header>
 
     <main>
-        <p id="haikuText">&nbsp;</p>
+        <p id="haikuText" aria-live="polite">&nbsp;</p>
         <button id="getHaiku">Generate Haiku</button>
     </main>
-</div>    
+</div>
 
 <footer>
     <p>&copy; <span id="copyright">MMXX</span> Damion Armentrout</p>
