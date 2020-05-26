@@ -17,6 +17,7 @@ function getHaiku(){
                      (SELECT DISTINCT seven FROM haiku) b,
                      (SELECT DISTINCT five  FROM haiku) c
                 WHERE NOT a.five = c.five
+                AND NOT b.seven = ''
                 ORDER BY random(), random(), random()
                 LIMIT 1;
             `);
